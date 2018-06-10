@@ -14,15 +14,6 @@
 (define (square x)
 	(* x x))
 
-(define count 1)
-
-;;(define (sqrt-iter guess x)
-;;	(set! count (+ count 1))
-;;	(display count)
-;;	(new-if (good-enough? guess x)
-;;		guess
-;;		(sqrt-iter (improve guess x) x)))
-
 (define (sqrt-iter guess x)
 	(cond ((good-enough? guess (improve guess x))
 		guess)
@@ -30,3 +21,5 @@
 
 (define (sqrt x)
 	(sqrt-iter 1.0 x))
+;;当猜测的值与下一次猜测的值相差很小的时候sqrt函数也可以正常工作
+;;只是当要求根的数太小的时候sqrt函数无法正常工作
