@@ -34,3 +34,4 @@
 			guess
 			(sqrt-iter (improve-1 guess))))
 	(sqrt-iter 1.0))
+;;sqrt-1函数与sqrt函数的功能相同，sqrt-1使用块结构改写
