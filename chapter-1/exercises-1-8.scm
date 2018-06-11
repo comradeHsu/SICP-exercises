@@ -12,6 +12,9 @@
 
 (define square(lambda(x) (* x x)))
 
+(define (square-1 x)
+	(exp (* 2 (log x))))
+
 (define (cubeRoot-iter guess x)
 	(cond ((good-enough? guess x)
 		guess)
