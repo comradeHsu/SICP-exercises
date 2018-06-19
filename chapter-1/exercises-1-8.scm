@@ -12,6 +12,7 @@
 
 (define square(lambda(x) (* x x)))
 
+;;exp   log
 (define (square-1 x)
 	(exp (* 2 (log x))))
 
