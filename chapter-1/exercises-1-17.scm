@@ -1,4 +1,4 @@
-
+;;remainder 是求余数
 (define (even? n)
 	(= (remainder n 2) 0))
 
