@@ -1,10 +1,13 @@
-(define (smallest_devisor n)
+(define (smallest-devisor n)
 	(find-divisor n 2))
 
-(define (find-divisor a test)
+(define (find-divisor n test)
 	(cond ((> (square test) n) n)
-		(divides? test n) test)
-		(else (find-divisor n (+ test 1))))
+		((divides? test n) test)
+		(else (find-divisor n (+ test 1)))))
 
 (define (divides? a b)
 	(= (remainder b a) 0))
+
+(define (square x)
+	(* x x))
