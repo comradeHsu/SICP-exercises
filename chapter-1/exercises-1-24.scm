@@ -5,7 +5,7 @@
 	(start-prime-test n (runtime)))
 
 (define (start-prime-test n start-time)
-	(if (prime? n)
+	(if (fast-prime? n 1)
 		(report-prime (- (runtime) start-time))
 		(search-for-primes (+ n 2))))
 
@@ -23,9 +23,9 @@
         (time-nanosecond (current-time)))
 		
 (define (fast-prime? n times)
-	(cond ((= times 0) true)
+	(cond ((= times 0) #t)
 		((format-test n) (fast-prime? n (- times 1)))
-		(else false)))
+		(else #f)))
 		
 (define (format-test n)
 	(define (try-it a)
@@ -36,3 +36,8 @@
 	(cond ((= exp 0) 1)
 		((even? exp) (remainder (square (expmod base (/ exp 2) m)) m))
 		(else (remainder (* base (expmod base (- exp 1) m)) m))))
+
+(define (even? n)
+	(= (remainder n 2) 0))
+;;10001:5500
+;;100000001:11000
