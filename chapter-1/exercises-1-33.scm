@@ -46,3 +46,26 @@
 (define (sum-prime a b)
 	(filtered-accumulate combiner prime? 0 
 		(lambda(x) x) a next b))
+
+;; b
+
+(define (filtered-accumulate-iter-b combiner filter null-value term a next b)
+	(define (iter x result)
+		(if (> x b) 
+			result
+			(if (filter x b)
+			(iter (next x) (combiner result (term x)))
+			(iter (next x) result))))
+	(iter a null-value))
+
+(define (coprime? a n)
+	(= (common-factor a n) 1))
+
+(define (common-factor a b)
+	(if (= b 0)
+		a
+		(common-factor b (remainder a b))))
+
+(define (multi-coprime a b)
+	(filtered-accumulate-iter-b (lambda(c d) (* c d))
+		coprime? 1 (lambda(x) x) a next b))
