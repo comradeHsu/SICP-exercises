@@ -14,3 +14,9 @@
 				next
 				(try next))))
 	(try first-guess))
+
+;;
+(fixed-point (lambda (x) (/ (+ (/ (log 1000) (log x)) x) 2)) 2)
+
+;;
+(fixed-point (lambda (x) (/ (log 1000) (log x))) 2)

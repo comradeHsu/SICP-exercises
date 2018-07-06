@@ -1,11 +1,11 @@
 ;;a
 
-(define (cont-frac n d k)
+(define (cont-frac-iter n d k)
 	(define (frac-iter c result)
-		(if (= c 1) 
-			1.0
+		(if (= c 0) 
+			result
 			(frac-iter (- c 1) (/ (n c) (+ (d c) result)))))
-	(frac-iter k 0))
+	(frac-iter k 0.0))
 
 (define (cont-frac n d k)
 	(define (frac-iter c)
