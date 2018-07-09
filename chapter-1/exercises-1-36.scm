@@ -15,8 +15,8 @@
 				(try next))))
 	(try first-guess))
 
-;;
+;;使用平均阻尼
 (fixed-point (lambda (x) (/ (+ (/ (log 1000) (log x)) x) 2)) 2)
 
-;;
+;;使用非平均阻尼
 (fixed-point (lambda (x) (/ (log 1000) (log x))) 2)
