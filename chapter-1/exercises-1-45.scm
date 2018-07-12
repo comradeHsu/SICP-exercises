@@ -31,6 +31,15 @@
 (define (compose funca funcb)
 	(lambda(x) (funca (funcb x))))
 
+(define (lg n)
+	(define (ex x)
+		(if (> (expt 2 x) n)
+			(if (< (- x 1) 1)
+				1
+				(- x 1))
+			(ex (+ x 1))))
+	(ex 0))
+
 ;;
 (define (sqrt-n x n)
 	(let ((frequency (if (< n 3)
@@ -39,5 +48,6 @@
 	(fixed-point (repeated (average-damp (lambda(y) (/ x (expt y (- n 1)))))  frequency) 1.0)))
 
 (define (log-n x n)
-	(let ((frequency (log n)))
-	(fixed-point (repeated (average-damp (lambda(y) (/ x (expt y (- n 1)))))  frequency) 1.0)))
+	(let ((frequency (lg n)))
+	(fixed-point ((repeated average-damp frequency) (lambda(y) (/ x (expt y (- n 1))))) 1.0)))
+
