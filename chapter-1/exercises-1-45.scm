@@ -40,7 +40,7 @@
 			(ex (+ x 1))))
 	(ex 0))
 
-;;
+;;刚开始的想法，不对，增长系数是log2 n
 (define (sqrt-n x n)
 	(let ((frequency (if (< n 3)
 		1
