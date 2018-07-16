@@ -1,0 +1,12 @@
+(define (make-rat n d)
+	(let ((g (gcd n d)))
+		(cons (/ n g) (/ d g))))
+
+(define (better-rat n d)
+	(let ((g (gcd n d)))
+		(cond ((and (> n 0) (> d 0))
+				(cons (/ n g) (/ d g)))
+			((and (< n 0) (> d 0))
+				(cons (/ n g) (/ d g)))
+			((or (and (> n 0) (< d 0)) (and (< n 0) (< d 0)))
+				(cons (- (/ n g)) (- (/ d g)))))))
