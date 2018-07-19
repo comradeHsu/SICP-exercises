@@ -19,3 +19,7 @@
 	(define (so p q)
 		p)
 	(so (x y))
+
+;; so
+(define (cdr z)
+	(z (lambda(p q) q)))
