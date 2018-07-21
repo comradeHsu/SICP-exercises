@@ -11,8 +11,18 @@
 		(max p1 p2 p3 p4))))
 
 (define (div-interval x y)
-	(make-interval x 
+	(mul-interval x 
 		(make-interval (/ 1.0 (upper-bound y))
 			(/ 1.0 (lower-bound y)))))
 
 (define (make-interval a b) (cons a b))
+
+(define (lower-bound interval)
+	(if (> (car interval) (cdr interval))
+		(cdr interval)
+		(car interval)))
+
+(define (upper-bound interval)
+	(if (> (car interval) (cdr interval))
+		(car interval)
+		(cdr interval)))
