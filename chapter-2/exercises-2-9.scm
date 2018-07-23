@@ -8,3 +8,5 @@
 ;;(+ (upper-bound x) (upper-bound y)) - (+ (lower-bound x) (lower-bound y))
 ;;=(upper-bound x)+(upper-bound y)-(lower-bound x)-(lower-bound y)
 ;;=a+b
+
+;;由以上公式可证明
