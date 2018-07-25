@@ -1,0 +1,16 @@
+(define (same-parity x . y)
+	(let ([boolean (double-num x)])
+		(define (iter temp len)
+			(let ([y (list-ref var len)]
+				[bool-len (double-num y)])
+			(if (= len 0)
+				(if (= boolean bool-len)
+					(append temp (make-list 1 y))
+					temp)
+				(if (= boolean bool-len)
+					(iter (append temp (make-list 1 y)) (- len 1))
+					(iter temp (- len 1))))))
+	(iter (make-list 1 x) (- (length var) 1))))
+
+(define (double-num x)
+	(= (remainder 2) 0))
