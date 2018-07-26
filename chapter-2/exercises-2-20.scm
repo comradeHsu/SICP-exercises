@@ -1,3 +1,5 @@
+;;比较bool类型数据不能使用 = 操作符，使用 eqv? 过程
+;;在chezScheme里 (let ((<var> <exp>)...) 等效于 (let ([<var> <exp>]...)
 (define (same-parity x . var)
 	(let ([boolean (double-num x)]
 		  [var-length (- (length var) 1)])
