@@ -9,4 +9,4 @@
 	(let ((len (length var)))
 		(list-ref var (- len 1))))
 
-;;last-pair
+;;last-pair 在chezScheme里已经有了实现，返回list中的最后一个元素
