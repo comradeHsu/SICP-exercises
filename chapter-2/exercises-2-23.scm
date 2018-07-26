@@ -1,0 +1,6 @@
+(define (for-each func items)
+	(define (each len)
+		(func (list-ref items len))
+		(if (< len (- (length items) 1))
+			(each (+ len 1))))
+	(each 0))
