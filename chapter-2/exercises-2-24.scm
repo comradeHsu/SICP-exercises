@@ -6,5 +6,5 @@ K,V → K,nil
 K     K,V → K,nil
       ↓     ↓
       K	    K,V → K,nil
-	    ↓     ↓
-			K     K
+      ↓     ↓
+      K     K
