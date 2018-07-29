@@ -1,0 +1,12 @@
+(define (fringe var)
+	(define (iter temp len)
+		(let ([current (list-ref var len)]
+				[lastIndex (- (length var) 1)])
+			(if (list? current)
+				(if (= len lastIndex)
+					(append temp (fringe current))
+          			(iter (append temp (fringe current)) (+ len 1)))
+			  	(if (= len lastIndex)
+			    	(append temp (list current))
+          			(iter (append temp (list current)) (+ len 1))))))
+	(iter '() 0))
