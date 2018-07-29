@@ -1,0 +1,12 @@
+
+(define (reverse var)
+	(define (iter temp len)
+    (let ([ele (list-ref var len)])
+      (if (list? ele)
+        (if (= len 0)
+			    (append temp (reverse ele))
+          (iter (append temp (reverse ele)) (- len 1)))
+			  (if (= len 0)
+			    (append temp (list ele))
+          (iter (append temp (list ele)) (- len 1))))))
+	(iter '() (- (length var) 1)))
