@@ -13,3 +13,11 @@
 
 (define (square x)
 	(* x x))
+	
+(define (square-tree-another tree)
+	(map square-tree tree))
+	
+(define (square-tree ele)
+	(if (list? ele)
+		(map square-tree ele)
+		(square ele)))
