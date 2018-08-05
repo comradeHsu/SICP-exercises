@@ -12,9 +12,8 @@
 				(cdr rest))))
 	(iter initial sequence))
 
-;;(fold-right / 1 (list 1 2 3)) = 3/2
-;;(fold-left / 1 (list 1 2 3)) = 1/6
-;;(fold-right list nil (list 1 2 3)) = (1 (2 (3)))
-;;(fold-left list nil (list 1 2 3))= (((1) 2) 3)
+(define (reverse sequence)
+	(fold-right (lambda(x y) (append y (list x))) '() sequence))
 
-;;要使fold-left和fold-right达到同样的结果，要求op对操作顺序无关，譬如+
+(define (reverse-left sequence)
+	(fold-left (lambda(x y) (cons y x)) '() sequence))
