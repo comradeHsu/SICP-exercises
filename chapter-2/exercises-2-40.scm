@@ -33,4 +33,22 @@
 	(map make-pair-sum
 		(filter prime-sum?
 			(flatmap (lambda(i) (map (lambda(j) (list i j))
-				(enumerate-interval 1 (- i 1))))))))
+				(enumerate-interval 1 (- i 1))))
+			(enumerate-interval 1 n)))))
+
+(define (enumerate-interval s e)
+	(define (iter index result)
+		(if (> index e)
+			result
+			(iter (+ index 1) (append result (list index)))))
+	(iter s '()))
+
+(define (unique-pairs n)  
+  (flatmap (lambda (i)   
+             (map (lambda (j) (list i j)) (enumerate-interval 1 (- i 1))))  
+           (enumerate-interval 2 n)))
+
+;;
+(define (prime-sum-pairs-another n)  
+  (map make-pair-sum  
+       (filter prime-sum? (unique-pairs n))))
