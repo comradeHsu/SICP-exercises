@@ -28,23 +28,20 @@
 	(iter s '()))
 	
 (define (adjoin-position row cloumn data)
-	(display data)
-	(if (null? (car data))
-		(list (list cloumn row))
-		(append data (list cloumn row))))
+		(append! (list-copy data) (list row)))
 	
 (define empty-board '())
 
 (define (safe? k positions)
-	(let ([position (list-ref positions k)])
+	(let ([position (list-ref positions (- k 1))])
 		(define (iter-compare index)
 			(if (= index k)
 				#t
-				(let ([index-position (list-ref positions index)]
+				(let ([index-position (list-ref positions (- index 1))]
 					[difference (- k index)])
-					(if (or (= (cdr position) (cdr index-position)) 
-							(= (+ (cdr position) difference) (cdr index-position)) 
-							(= (- (cdr position) difference) (cdr index-position)))
+					(if (or (= position index-position) 
+							(= (+ position difference) index-position) 
+							(= (- position difference) index-position))
 						#f
 						(iter-compare (+ index 1))))))
-		(iter-compare 0)))
+		(iter-compare 1)))
