@@ -26,7 +26,8 @@
 			result
 			(iter (+ index 1) (append result (list index)))))
 	(iter s '()))
-	
+
+;;这里使用list-copy过程，否则append!会影响到data	
 (define (adjoin-position row cloumn data)
 		(append! (list-copy data) (list row)))
 	
