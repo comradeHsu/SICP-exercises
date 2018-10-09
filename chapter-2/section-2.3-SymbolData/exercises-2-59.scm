@@ -1,0 +1,25 @@
+(define (element-of-set? x set)
+	(cond ((null? set) #f)
+		((equal? x (car set)) #t)
+		(else (element-of-set x (cdr set)))))
+		
+(define (adjoin-set x set)
+	(if (element-of-set? x set)
+		set
+		(cons x set)))
+		
+(define (intersection-set setA setB)
+	(cond ((or (null? setA) (null? setB)) '())
+		((element-of-set? (car setA) setB)
+			(cons (car setA) (intersection-set (cdr setA) setB)))
+		(else (intersection-set (cdr setA) setB))))
+		
+(define (union-set setA setB)
+	(define (iter current-set result)
+		(cond ((null? current-set) result)
+			((element-of-set? (car current-set) result)
+				(iter (cdr current-set) result))
+			(else (iter (cdr current-set) (cons (car current-set) result)))))
+	(cond ((null? setA) setB)
+		((null? setB) setA)
+		(else (iter setA setB))))
