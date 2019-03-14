@@ -12,12 +12,12 @@
 (define (fast-fastfib-iter a b p q count)  
   (cond ((= count 0) b)  
     ((even? count)  
-     (fib-iter a  
+     (fast-fastfib-iter a  
            b  
            (+ (* p p) (* q q))  
            (+ (* q q) (* 2 q p))  
            (/ count 2)))  
-    (else (fib-iter (+ (* b q) (* a q) (* a p))  
+    (else (fast-fastfib-iter (+ (* b q) (* a q) (* a p))  
              (+ (* b p) (* a q))  
              p  
              q  
